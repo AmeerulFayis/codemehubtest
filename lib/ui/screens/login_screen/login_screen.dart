@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
+import '../../util/app_sp.dart';
+
 class LoginScreen extends StatefulWidget {
    LoginScreen({Key? key}) : super(key: key);
 
@@ -121,6 +123,7 @@ obscureText=!obscureText;
     else if (state is LoginSuccessState) {
       if (state.response.success!) {
         EasyLoading.showToast("${state.response.message}");
+        AppSp().setToken(state.response.data!.token.toString());
 
         Navigator.push(context, MaterialPageRoute(builder: (context)=>const HomeScreen()));
       } else {

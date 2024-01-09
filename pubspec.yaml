@@ -39,6 +39,7 @@ dependencies:
   equatable:
   http:
   flutter_easyloading:
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:
